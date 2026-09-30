@@ -30,41 +30,17 @@ export type NavItem = {
 
 const navItems: NavItem[] = [
   { type: "link", name: "Home", link: "/" },
-  {
-    type: "link",
-    name: "About Us",
-    link: "/about-us",
-  },
+  { type: "link", name: "About", link: "/about-us" },
   {
     type: "multiple",
     name: "Services",
     items: [
-      {
-        name: "AI-Powered Solutions",
-        link: "/ai-solutions",
-      },
-      {
-        name: "Custom Development Solutions",
-        link: "/custom-development",
-      },
+      { name: "Web Development", link: "/web-development" },
+      { name: "AI Automation", link: "/ai-automation" },
+      { name: "Custom Software Development", link: "/custom-software-development" },
     ],
   },
-  // { type: "link", name: "Blogs", link: "/" },
-  // { type: "link", name: "Products", link: "/products" },
-  {
-    type: "multiple",
-    name: "Products",
-    items: [
-      {
-        name: "Loan Management System",
-        link: "/loan-management-system",
-      },
-      {
-        name: "BECS",
-        link: "/becs",
-      },
-    ],
-  },
+  { type: "link", name: "Portfolio", link: "/portfolio" },
 ];
 
 export function TopNav() {

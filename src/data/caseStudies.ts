@@ -1,50 +1,53 @@
 export type CaseStudy = {
   title: string;
-  client: string;
+  service: string;
   category: string;
   description: string;
-  flag: string;
 };
 
+// Illustrative example projects showing the kind of work Secure Link takes on.
+// Not attributed to specific named clients.
 export const caseStudies: CaseStudy[] = [
   {
-    title: "AI-Enhanced Loan Management Platform",
-    client: "Muawin",
-    category: "Fintech",
-    description:
-      "KalTech developed a robust, AI-enhanced loan management platform with intelligent automation to streamline decision-making and accelerate launch.",
-    flag: "PK",
-  },
-  {
-    title: "AI-Powered QA Automation",
-    client: "Balloons",
-    category: "Quality Assurance",
-    description:
-      "Automated QA for both front and backend using AI-powered testing — resulting in zero critical bugs on launch.",
-    flag: "SA",
-  },
-  {
-    title: "AI-Powered MVP for KSA Market",
-    client: "VLUE",
-    category: "Product Development",
-    description:
-      "Delivered an MVP fast with personalized AI features, tailored to KSA market dynamics and user expectations.",
-    flag: "SA",
-  },
-  {
-    title: "Scalable AI Automation Solutions",
-    client: "Yousaf Ali",
-    category: "Automation",
-    description:
-      "From automation to data-driven UX, delivered AI-powered solutions that were cost-effective and scalable.",
-    flag: "US",
-  },
-  {
-    title: "Intelligent Website Build",
-    client: "Cloud Employees",
+    title: "Corporate Website Redesign",
+    service: "Web Development",
     category: "Web Development",
     description:
-      "Built a beautiful, intelligent website where every element was optimized using real-time data and AI insights.",
-    flag: "GB",
+      "A dated business website rebuilt from scratch — modern design, faster load times, and a CMS the team can actually update themselves.",
+  },
+  {
+    title: "Support Chatbot for a Service Business",
+    service: "AI Automation",
+    category: "AI Automation",
+    description:
+      "A website chatbot trained on a company's own FAQs and service pages, handling routine questions and routing the rest to the right person.",
+  },
+  {
+    title: "Internal CRM for a Sales Team",
+    service: "Custom Software Development",
+    category: "Custom Software",
+    description:
+      "A lightweight CRM built around one team's actual sales process, replacing a spreadsheet that had stopped scaling.",
+  },
+  {
+    title: "E-Commerce Storefront Launch",
+    service: "Web Development",
+    category: "Web Development",
+    description:
+      "A product catalog and checkout flow built for a growing retail brand, with inventory and payments connected from day one.",
+  },
+  {
+    title: "Lead Routing & Follow-Up Automation",
+    service: "AI Automation",
+    category: "AI Automation",
+    description:
+      "Incoming leads automatically scored and routed to the right sales rep, with follow-up sequences triggered by activity.",
+  },
+  {
+    title: "Client Portal for a Professional Services Firm",
+    service: "Custom Software Development",
+    category: "Custom Software",
+    description:
+      "A private portal where clients can track project status and documents, cutting down on back-and-forth email.",
   },
 ];

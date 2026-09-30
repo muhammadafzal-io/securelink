@@ -1,11 +1,11 @@
-// components/HorizontalCards.tsx
+// components/HorizontalScrollCards.tsx
 import React, { useRef } from "react";
-import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
 
 interface CardProps {
   title: string;
   description: string;
-  imageSrc: string;
+  icon: LucideIcon;
   id: string;
 }
 
@@ -17,7 +17,7 @@ interface CardComponentProps extends CardProps {
 const Card: React.FC<CardComponentProps> = ({
   title,
   description,
-  imageSrc,
+  icon: Icon,
   id,
   active,
   setActive,
@@ -33,15 +33,8 @@ const Card: React.FC<CardComponentProps> = ({
         <h2 className="text-[24px] font-bold text-foreground mb-4">{title}</h2>
         <p className="text-muted-foreground text-[18px]">{description}</p>
       </div>
-      <div className="absolute bottom-0 right-0 overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={title}
-          width={397}
-          height={289}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
-        />
+      <div className="absolute bottom-6 right-6 flex size-24 items-center justify-center rounded-2xl bg-brand/10">
+        <Icon className="size-12 text-brand" strokeWidth={1.5} />
       </div>
     </div>
   );

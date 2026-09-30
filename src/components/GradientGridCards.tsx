@@ -1,11 +1,11 @@
 // components/GradientGridCards.tsx
 import React from "react";
-import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
 
 interface CardProps {
   title: string;
   description: string;
-  imageSrc: string;
+  icon: LucideIcon;
   id: string;
   gradient: string;
 }
@@ -18,7 +18,7 @@ interface CardComponentProps extends CardProps {
 const Card: React.FC<CardComponentProps> = ({
   title,
   description,
-  imageSrc,
+  icon: Icon,
   id,
   active,
   gradient,
@@ -30,28 +30,19 @@ const Card: React.FC<CardComponentProps> = ({
       className="h-[310px] w-full rounded-lg p-6 flex flex-col justify-end relative overflow-hidden border border-border hover:border-muted-foreground transition-colors duration-300 cursor-pointer"
       onClick={handleActive}
     >
-      {/* Gradient overlay - positioned below image with z-[-1] */}
-      <div
-        className={`absolute inset-0 ${gradient} z-[-1] opacity-60 backdrop-blur-sm`}
-      ></div>
+      {/* Gradient overlay - positioned below content with z-[-1] */}
+      <div className={`absolute inset-0 ${gradient} z-[-1]`}></div>
 
-      {/* Text content */}
-      <div className="z-10 flex flex-col">
-        {active === id && <div className={`w-12 h-1 mb-6 bg-primary`}></div>}
-        <h2 className="text-[14px] font-bold text-foreground mb-4">{title}</h2>
-        <p className="text-muted-foreground text-[10px]">{description}</p>
+      {/* Icon */}
+      <div className="absolute top-4 right-4 z-[1] flex size-14 items-center justify-center rounded-xl bg-white/10">
+        <Icon className="size-7 text-white" strokeWidth={1.5} />
       </div>
 
-      {/* Image - now has z-[1] to position above gradient but below text */}
-      <div className="absolute top-0 right-0 overflow-hidden z-[1]">
-        <Image
-          src={imageSrc}
-          alt={title}
-          width={250}
-          height={150}
-          sizes="100%"
-          className="object-cover"
-        />
+      {/* Text content — gradient backdrop is always dark, so text stays white regardless of site theme */}
+      <div className="z-10 flex flex-col">
+        {active === id && <div className={`w-12 h-1 mb-6 bg-brand`}></div>}
+        <h2 className="text-[14px] font-bold text-white mb-4">{title}</h2>
+        <p className="text-white/70 text-[10px]">{description}</p>
       </div>
     </div>
   );

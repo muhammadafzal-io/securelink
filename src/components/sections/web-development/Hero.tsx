@@ -5,10 +5,10 @@ import { motion } from "motion/react";
 const Hero = () => {
   return (
     <div className="hero-zone relative h-[60svh] md:h-[85svh] flex items-center mt-18 md:mt-0">
-      <div className="hero-ai-video-filter" />
+      <div className="hero-web-dev-video-filter" />
       <div className="px-8 py-10 md:py-20 xl:py-32">
         <h1 className="relative z-10 font-bold hero-title sm:text-[58px] text-[32px] capitalize">
-          {"AI Development & Integration Services"
+          {"Websites Built To Do Their Job"
             .split(" ")
             .map((word, index) => (
               <React.Fragment key={index}>
@@ -24,42 +24,21 @@ const Hero = () => {
                 >
                   {word}
                 </motion.span>
-                {word === "&" && <br />}
+                {word === "To" && <br />}
               </React.Fragment>
             ))}
         </h1>
 
         <motion.p
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 0.8,
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.8 }}
           className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2"
         >
-          Empower your business with tailored AI solutions—<br></br>streamline
-          operations, enhance customer experiences,<br></br> and accelerate
-          growth.
+          From corporate websites to e-commerce stores and custom web
+          apps — designed to load fast, work on every device, and
+          represent your business properly.
         </motion.p>
-
-        <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 1,
-          }}
-          className="relative z-10 mt-6 flex flex-wrap items-center gap-4"
-        ></motion.div>
       </div>
     </div>
   );

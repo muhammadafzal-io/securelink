@@ -5,18 +5,10 @@ import { motion } from "motion/react";
 const Hero = () => {
   return (
     <div className="hero-zone relative h-[60svh] md:h-[85svh] flex items-center mt-18 md:mt-0">
-      <div className="hero-about-us-video-filter" />
+      <div className="hero-ai-video-filter" />
       <div className="px-8 py-10 md:py-20 xl:py-32">
-        <motion.p
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="relative z-10 mb-3 text-[11px] sm:text-[14px] font-semibold uppercase tracking-[0.15em] text-brand"
-        >
-          Integrating Technology with Security
-        </motion.p>
-        <h1 className="relative z-10 font-bold hero-title text-[32px] sm:text-[58px] capitalize">
-          {"A Technology Partner Built For Your Business"
+        <h1 className="relative z-10 font-bold hero-title sm:text-[58px] text-[32px] capitalize">
+          {"AI Automation For Everyday Operations"
             .split(" ")
             .map((word, index) => (
               <React.Fragment key={index}>
@@ -27,12 +19,12 @@ const Hero = () => {
                     duration: 0.3,
                     delay: index * 0.1,
                     ease: "easeInOut",
-                  }} 
+                  }}
                   className="mr-2 inline-block"
                 >
                   {word}
                 </motion.span>
-                {word === "For" && <br className="hidden sm:block" />}
+                {word === "For" && <br />}
               </React.Fragment>
             ))}
         </h1>
@@ -41,12 +33,10 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.8 }}
-          className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2 max-w-2xl"
+          className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2"
         >
-          Secure Link is a technology company serving businesses in the UAE
-          — building websites, automating workflows, and developing custom
-          software for companies that want technology that actually fits
-          how they work.
+          AI agents and workflow automation that take repetitive work off
+          your team's plate — from customer support to lead follow-up.
         </motion.p>
       </div>
     </div>

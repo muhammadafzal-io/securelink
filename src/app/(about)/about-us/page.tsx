@@ -1,93 +1,68 @@
 import Hero from "@/components/sections/about-us/Hero";
 import MeetingSchedulerSection from "@/components/sections/home/MeetingSchedulerSection";
-import Image from "next/image";
-import KalTechBenifits from "@/components/sections/home/KalTechBenefits";
-import KalTechGrowth from "@/components/sections/home/KalTechGrowth";
-// import CaseStudiesSection from "@/components/sections/home/CaseStudiesSection";
+import ProcessSection from "@/components/sections/home/ProcessSection";
 
 export default function AboutUs() {
   return (
     <div>
-      
-
       <Hero />
-      <div className="flex w-full pl-10 sm:pb-6 flex-row pt-8 sm:pt-0">
-        <div className="flex flex-col sm:w-1/2 w-full">
+      <div className="flex w-full px-6 sm:px-10 sm:pb-6 flex-col pt-8 sm:pt-16">
+        <div className="flex flex-col w-full sm:max-w-3xl mx-auto text-center">
           <h1 className="relative z-10 font-bold text-foreground sm:text-[48px] text-[32px] capitalize">
-            Next-Gen AI Engineering
+            Websites, Software & Automation — Under One Roof
           </h1>
           <p className="relative z-10 sm:py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-2">
-            KalTech is a full-stack AI venture studio driven by a singular goal:
-            making intelligence scalable. We partner with visionary startups,
-            enterprises, and ecosystems to turn complex challenges into elegant,
-            AI-enabled solutions.
+            Secure Link works with businesses across the UAE to build the
+            technology behind their growth — a website that represents
+            them properly, software that fits how their team actually
+            works, and automation that removes the busywork in between.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-12 sm:mt-16">
-            <div className="flex w-full sm:w-1/2 z-10 text-[12px] sm:text-[18px] font-normal text-muted-foreground">
-              <p>
-                Our DNA blends{" "}
-                <span className="font-semibold text-muted-foreground">
-                  deep software engineering
-                </span>{" "}
-                with{" "}
-                <span className="font-semibold text-muted-foreground">
-                  AI innovation
-                </span>
-                , enabling us to build future-ready products — from intelligent
-                assistants to enterprise-grade automation platforms.
-              </p>
-            </div>
-            <div className="flex w-full sm:w-1/2 z-10 text-[12px] sm:text-[18px] font-normal text-muted-foreground">
-              <p>
-                Founded by a team of domain experts, we bring together{" "}
-                <span className="font-semibold text-muted-foreground">
-                  strategists, AI engineers, product designers, and growth
-                  architects
-                </span>{" "}
-                to craft solutions that are as scalable as they are smart.
-              </p>
-            </div>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mt-12 sm:mt-16 max-w-5xl mx-auto">
+          <div className="flex w-full sm:w-1/2 text-[12px] sm:text-[18px] font-normal text-muted-foreground">
+            <p>
+              We work across{" "}
+              <span className="font-semibold text-foreground">
+                web development, AI automation, and custom software
+              </span>{" "}
+              — which means your website, your internal tools, and the
+              automation connecting them are built by one team that
+              understands how they fit together.
+            </p>
+          </div>
+          <div className="flex w-full sm:w-1/2 text-[12px] sm:text-[18px] font-normal text-muted-foreground">
+            <p>
+              Every engagement starts with understanding your business
+              first. We'd rather scope a project properly than ship
+              something generic — the goal is technology you'll still be
+              using, and happy with, a year from now.
+            </p>
           </div>
         </div>
-        <div className="flex w-1/2 z-10 justify-end hidden sm:flex">
-          <Image
-            src={"/assets/about-us-img.png"}
-            alt="about-us"
-            height={500}
-            width={900}
-          ></Image>
-        </div>
       </div>
+
       <div className="relative">
         <div className="hero-about-us-vision-filter items-center justify-center">
           <h1 className="relative z-10 font-bold text-[32px] sm:text-[48px] capitalize text-center">
-            Our Vision & Mission
+            Our Approach
           </h1>
-          <p className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-2 text-center hidden sm:flex">
-            Driven to lead the world into a smarter, faster, and more connected
-            future—powered <br></br> by AI-first innovation and purposeful
-            design.
+          <p className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-2 text-center px-8 sm:px-0">
+            Build technology that solves a real problem, built well enough
+            that it doesn't need replacing in a year.
           </p>
-          <p className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-2 px-12 text-center flex sm:hidden">
-            Driven to lead the world into a smarter, faster, and more connected
-            future—powered by AI-first innovation and purposeful design.
-          </p>
-          <p className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-18 text-center hidden sm:flex">
-            To design, develop, and deploy AI-powered systems that accelerate
-            growth, automate<br></br> operations, and empower organizations to
-            lead confidently in a digital world.
-          </p>
-          <p className="relative z-10 py-2 px-12 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-12 text-center flex sm:hidden">
-            To design, develop, and deploy AI-powered systems that accelerate
-            growth, automate operations, and empower organizations to lead
-            confidently in a digital world.
+          <p className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal text-muted-foreground mt-12 sm:mt-18 text-center px-8 sm:px-0">
+            We help UAE businesses establish a stronger digital presence,
+            automate the operational work that eats up time, and build the
+            internal systems that let them scale without adding
+            headcount for every new process.
           </p>
         </div>
       </div>
-      <KalTechBenifits />
-      <KalTechGrowth />
-      {/* <CaseStudiesSection /> */}
+
+      <ProcessSection />
+
       <div className="flex w-full bg-surface-elevated py-12"></div>
+
       <MeetingSchedulerSection />
     </div>
   );

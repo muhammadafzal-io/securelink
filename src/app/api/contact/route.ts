@@ -7,7 +7,20 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const { name, email, sourcePage, utmSource, utmMedium, utmCampaign, utmTerm, utmContent } = body;
+    const {
+      name,
+      email,
+      phone,
+      company,
+      service,
+      message,
+      sourcePage,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+      utmTerm,
+      utmContent,
+    } = body;
 
     // Validate required fields
     if (!name || !email) {
@@ -52,12 +65,23 @@ export async function POST(request: NextRequest) {
 
     if (!response.data.values || response.data.values.length === 0) {
       const headers = [
-        "Timestamp", "Full Name", "Email", "Source Page"
-        
+        "Timestamp",
+        "Full Name",
+        "Email",
+        "Phone",
+        "Company",
+        "Service",
+        "Message",
+        "Source Page",
+        "UTM Source",
+        "UTM Medium",
+        "UTM Campaign",
+        "UTM Term",
+        "UTM Content",
       ];
       await sheets.spreadsheets.values.update({
         spreadsheetId: sheetId,
-        range: "Sheet1!A1:I1",
+        range: "Sheet1!A1:M1",
         valueInputOption: "USER_ENTERED",
         requestBody: {
           values: [headers],
@@ -71,6 +95,10 @@ export async function POST(request: NextRequest) {
       timestamp,
       name,
       email,
+      phone || "",
+      company || "",
+      service || "",
+      message || "",
       sourcePage || "",
       utmSource || "",
       utmMedium || "",
@@ -80,19 +108,14 @@ export async function POST(request: NextRequest) {
     ];
 
     // Append the row to "Sheet1" (matching your spreadsheet)
-    // Using Sheet1!A1:I1 as the range for appending
     await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
-      range: "Sheet1!A:I",
+      range: "Sheet1!A:M",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [row],
       },
     });
-
-    // Optional: Send email notification
-    // Uncomment and configure SMTP env vars to enable
-    // await sendNotificationEmail({ name, email, sourcePage, timestamp });
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -103,36 +126,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
-// Optional email notification function (uncomment when SMTP is configured)
-// async function sendNotificationEmail(data: {
-//   name: string;
-//   email: string;
-//   sourcePage: string;
-//   timestamp: string;
-// }) {
-//   const nodemailer = await import("nodemailer");
-//
-//   const transporter = nodemailer.createTransport({
-//     host: process.env.SMTP_HOST,
-//     port: Number(process.env.SMTP_PORT) || 587,
-//     secure: false,
-//     auth: {
-//       user: process.env.SMTP_USER,
-//       pass: process.env.SMTP_PASS,
-//     },
-//   });
-//
-//   await transporter.sendMail({
-//     from: `"KalTech Website" <${process.env.SMTP_USER}>`,
-//     to: process.env.NOTIFICATION_EMAIL || "shershah@kalpayfinancials.com",
-//     subject: `New AI Audit Request from ${data.name}`,
-//     html: `
-//       <h2>New Contact Form Submission</h2>
-//       <p><strong>Name:</strong> ${data.name}</p>
-//       <p><strong>Email:</strong> ${data.email}</p>
-//       <p><strong>Source Page:</strong> ${data.sourcePage}</p>
-//       <p><strong>Submitted At:</strong> ${data.timestamp}</p>
-//     `,
-//   });
-// }

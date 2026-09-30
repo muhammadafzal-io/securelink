@@ -73,7 +73,7 @@ export default function NavSheet({ navItems }: NavSheetProps) {
                               <SheetClose asChild>
                                 <Link
                                   href={subItem.link}
-                                  className="block py-2 px-3 rounded-mdtransition-colors hover:underline"
+                                  className="block py-2 px-3 rounded-md transition-colors hover:underline"
                                   onClick={() => setOpen(false)}
                                 >
                                   {subItem.name}

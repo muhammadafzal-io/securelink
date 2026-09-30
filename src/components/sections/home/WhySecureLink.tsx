@@ -1,38 +1,46 @@
 import { cn } from "@/lib/utils";
-import { ThemeAwareIcon } from "@/components/theme-aware-icon";
+import {
+  Target,
+  ShieldCheck,
+  Workflow,
+  Layers,
+  MessagesSquare,
+  Compass,
+  type LucideIcon,
+} from "lucide-react";
 import React from "react";
 
-const KalTechBenifits = () => {
-  const cardContent = [
+const WhySecureLink = () => {
+  const cardContent: { icon: LucideIcon; title: string; description: string }[] = [
     {
-      icon: "/assets/benifits/benifits-icon1.png",
-      title: "AI-Native Approach",
-      description: "We don't just add AI. It's in our DNA.",
+      icon: Target,
+      title: "Business-Focused Development",
+      description: "Every project starts with what your business needs, not a generic template.",
     },
     {
-      icon: "/assets/benifits/benifits-icon2.png",
-      title: "Lightning-Fast MVPs",
-      description: "AI accelerates your time to market.",
+      icon: ShieldCheck,
+      title: "Security-Minded by Default",
+      description: "Sensible data handling and secure practices built in, not bolted on later.",
     },
     {
-      icon: "/assets/benifits/benifits-icon3.png",
-      title: "Full-Stack AI Teams",
-      description: "Engineers, strategists, and data scientists on call.",
+      icon: Workflow,
+      title: "Automation-First Thinking",
+      description: "We look for the repetitive work worth automating, not just repeating it.",
     },
     {
-      icon: "/assets/benifits/benifits-icon4.png",
-      title: "Generative & Predictive AI",
-      description: "From LLMs to ML pipelines.",
+      icon: Layers,
+      title: "Modern, Scalable Engineering",
+      description: "Built on current frameworks and clean architecture that can grow with you.",
     },
     {
-      icon: "/assets/benifits/benifits-icon5.png",
-      title: "Future-Proof Architecture",
-      description: "AI-ready from day one.",
+      icon: MessagesSquare,
+      title: "Clear Communication",
+      description: "You'll know what's being built, why, and when — no black boxes.",
     },
     {
-      icon: "/assets/benifits/benifits-icon6.png",
-      title: "Flexible Engagement Models",
-      description: "Hourly, retainer, or AI-as-a-Service.",
+      icon: Compass,
+      title: "End-to-End Ownership",
+      description: "From first conversation to post-launch support, one team sees it through.",
     },
   ];
 
@@ -42,9 +50,7 @@ const KalTechBenifits = () => {
 
       <div className="custom-container relative z-[5]">
         <h3 className="text-[32px] sm:text-[48px] font-semibold text-foreground text-center">
-          Why Choose{" "}
-          <span className="text-brand text-[32px] sm:text-[48px]"> Kal</span>
-          Tech?
+          Why <span className="text-brand">Secure Link</span>
         </h3>
 
         <div className="grid grid-cols-2 md:grid-cols-3 rounded-xl border border-border overflow-hidden bg-card/70 backdrop-blur-md mt-10 divide-x divide-y divide-border">
@@ -62,16 +68,16 @@ const KalTechBenifits = () => {
   );
 };
 
-export default KalTechBenifits;
+export default WhySecureLink;
 
 const Benefitcard = ({
   className,
-  icon,
+  icon: Icon,
   title,
   description,
 }: {
   className?: string;
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 }) => {
@@ -83,7 +89,7 @@ const Benefitcard = ({
       )}
     >
       <div className="icon-tile size-10">
-        <ThemeAwareIcon src={icon} alt={title} width={28} height={28} />
+        <Icon className="size-4 text-foreground" strokeWidth={1.75} />
       </div>
 
       <div className="mt-3 space-y-1.5 sm:space-y-1">

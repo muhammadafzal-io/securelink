@@ -1,11 +1,9 @@
 import Hero from "@/components/sections/home/Hero";
-import KalTechBenifits from "@/components/sections/home/KalTechBenefits";
+import WhySecureLink from "@/components/sections/home/WhySecureLink";
 import SolutionSection from "@/components/sections/home/SolutionSection";
-import TrustedPartners from "@/components/sections/home/TrustedPartners";
-import TestimonialSection from "@/components/sections/home/TestimonialSection";
+import ProcessSection from "@/components/sections/home/ProcessSection";
+import CaseStudiesSection from "@/components/sections/home/CaseStudiesSection";
 import MeetingSchedulerSection from "@/components/sections/home/MeetingSchedulerSection";
-import KalTechGrowth from "@/components/sections/home/KalTechGrowth";
-// import CaseStudiesSection from "@/components/sections/home/CaseStudiesSection";
 
 export default function Home() {
   return (
@@ -13,18 +11,14 @@ export default function Home() {
       <Hero />
 
       <div className="bg-section-gradient pt-8 sm:pt-0">
-        <TrustedPartners />
-
         <SolutionSection />
       </div>
 
-      <KalTechBenifits />
+      <WhySecureLink />
 
-      <KalTechGrowth />
+      <ProcessSection />
 
-      {/* <CaseStudiesSection /> */}
-
-      <TestimonialSection />
+      <CaseStudiesSection />
 
       <MeetingSchedulerSection />
     </div>

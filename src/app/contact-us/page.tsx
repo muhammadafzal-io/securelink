@@ -1,8 +1,7 @@
 "use client";
 import ContactForm from "@/components/sections/contact-us/ContactForm";
 import Hero from "@/components/sections/contact-us/Hero";
-import Image from "next/image";
-import { ArrowRight, ChevronRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ChevronRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
@@ -27,7 +26,7 @@ export default function ContactUs() {
     {
       question: "Will I have a dedicated team for my project?",
       answer:
-        "Yes, we assign a dedicated team to your project based on its requirements. Your team typically includes a project manager, UI/UX designer, frontend and backend developers, and QA specialists. This ensures consistent communication and accountability throughout the development process, with team members who understand your project's unique goals and challenges.",
+        "Yes, we assign a dedicated team to your project based on its requirements. Your team typically includes a project manager, developers, and QA — ensuring consistent communication throughout.",
     },
   ];
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -39,26 +38,18 @@ export default function ContactUs() {
       <Hero />
       <div className="flex w-full h-full pl-10 mt-8 md:mt-32 pb-6 md:flex-row flex-col justify-between">
         <div className="flex flex-col gap-16 pr-12 md:w-2/3 w-full">
-          <div className="flex flex-col gap-8 max-w-full sm:items-start sm:justify-start items-center justify-center">
+          <div id="start" className="flex flex-col gap-8 max-w-full sm:items-start sm:justify-start items-center justify-center scroll-mt-24">
             <div className="flex flex-col gap-2">
               <h1 className="text-[32px] sm:text-[48px] font-bold text-foreground mb-1 text-center sm:text-start">
                 Let’s Build Smarter.<br className="flex sm:hidden"></br>{" "}
                 Together.
               </h1>
               <p className="text-muted-foreground text-[12px] sm:text-[16px] mb-2 md:mb-4 text-center sm:text-start">
-                Drop your name and email — we'll reply within one business day with your free AI audit and next steps.
+                Tell us about your project and we'll reply within one
+                business day with next steps.
               </p>
             </div>
             <ContactForm />
-          </div>
-          <div className="max-w-full md:w-2/3 hidden md:flex">
-            <Image
-              src={"/assets/contact-us-map.png"}
-              alt="location"
-              width={1020}
-              height={447}
-              className="rounded-xl max-w-none"
-            ></Image>
           </div>
         </div>
         <div className="flex flex-col md:gap-50 md:w-1/3 w-full md:mt-39 mt-8">
@@ -68,17 +59,17 @@ export default function ContactUs() {
                 Customer Support
               </p>
               <p className="relative z-10 py-2 text-[12px] sm:text-[16px] font-normal text-muted-foreground text-center sm:text-start">
-                Our support team is available 24/7 to assist you with any
-                issues, queries, or product guidance you need.
+                Reach out with any questions about an ongoing project or
+                general support.
               </p>
             </div>
             <div className="flex flex-col h-full w-full bg-card p-4 rounded-xl overflow-hidden">
               <p className="relative z-10 text-[16px] sm:text-[18px] font-medium text-foreground mt-2 text-center sm:text-start">
-                Feedback and Suggestions
+                New Projects
               </p>
               <p className="relative z-10 py-2 text-[12px] sm:text-[16px] font-normal text-muted-foreground text-center sm:text-start">
-                Your feedback shapes our future. We’re constantly evolving, and
-                your insights help us improve .
+                Tell us what you're building — web, automation, or custom
+                software — and we'll follow up with next steps.
               </p>
             </div>
             <div className="flex flex-col h-full w-full bg-card p-4 rounded-xl overflow-hidden">
@@ -86,8 +77,8 @@ export default function ContactUs() {
                 Media Inquiries
               </p>
               <p className="relative z-10 py-2 text-[12px] sm:text-[16px] font-normal text-muted-foreground text-center sm:text-start">
-                For press or partnership opportunities, reach out to our media
-                team.
+                For press or partnership opportunities, reach out via the
+                form.
               </p>
             </div>
             <div className="flex flex-col h-full w-full bg-card pt-4 px-4 pb-4 md:pb-17 rounded-xl overflow-visible">
@@ -97,35 +88,15 @@ export default function ContactUs() {
               <span className="flex flex-row gap-2 items-center">
                 <MapPin className="ms-1 size-4.5" />
                 <p className="relative z-10 py-2 text-[12px] sm:text-[20px] font-normal text-muted-foreground">
-                  New Castle, Delaware, USA
-                </p>
-              </span>
-              <span className="flex flex-row gap-2 items-center">
-                <Phone className="ms-1 size-4.5" />
-                <p className="relative z-10 py-2 text-[12px] sm:text-[20px] font-normal text-muted-foreground">
-                  (+92) 3216033066
+                  Address — TBD
                 </p>
               </span>
               <span className="flex flex-row gap-2 items-center">
                 <Mail className="ms-1 size-4.5" />
                 <p className="relative z-10 py-2 text-[12px] sm:text-[20px] font-normal text-muted-foreground">
-                  shershah@kaltech.online
+                  Email — TBD
                 </p>
               </span>
-            </div>
-          </div>
-          <div className="flex flex-col gap-8 p-4 md:p-6 hidden sm:flex">
-            <h1 className="relative z-10 font-bold text-foreground text-[32px] sm:text-[48px] capitalize">
-              Our Location
-            </h1>
-            <div className="flex flex-col">
-              <p className="relative z-10 text-[12px] sm:text-[18px] font-normal text-foreground md:mt-2">
-                USA Office
-              </p>
-              <p className="relative z-10 py-1 text-[10px] sm:text-[16px] font-normal text-muted-foreground">
-                USA Office KalTech | 651 N Broad St, Suite 206 <br></br>{" "}
-                Middletown 19709, New Castle, Delaware, USA
-              </p>
             </div>
           </div>
         </div>
@@ -155,11 +126,8 @@ export default function ContactUs() {
               className="group icon-btn-ghost-effect text-[12px] sm:text-[18px] md:h-11 rounded-full gap-2 pe-2"
               asChild
             >
-              <Link
-                href={"https://calendly.com/shershah-kaltech/30min"}
-                target="_blank"
-              >
-                Contact Us
+              <Link href="#start">
+                Send a Message
                 <div className="icon">
                   <ArrowRight className="size-4 md:size-5" />
                 </div>
@@ -174,7 +142,7 @@ export default function ContactUs() {
             {faqs.map((faq, index) => (
               <div key={index} className="bg-surface-muted rounded-lg min-h-[64px]">
                 <button
-                  className="w-full text-left py-5 px-2 flex justify-between items-center hover:bg-neutral-900 transition-all duration-200"
+                  className="w-full text-left py-5 px-2 flex justify-between items-center hover:bg-muted transition-all duration-200"
                   onClick={() => toggleAccordion(index)}
                 >
                   <span className="pl-2 text-[12px] sm:text-[18px] font-[400] text-muted-foreground">

@@ -1,7 +1,7 @@
 // components/ServiceDetails.tsx
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
 
 interface FeatureItem {
   title: string;
@@ -11,43 +11,49 @@ interface FeatureItem {
 interface ServiceDetailsProps {
   title: string;
   description: string;
-  imageSrc: string;
+  icon: LucideIcon;
   features: FeatureItem[];
   ctaText?: string;
   ctaLink?: string;
   gradient?: string;
-  service?: string;
 }
 
 const ServiceDetails: React.FC<ServiceDetailsProps> = ({
   title,
   description,
-  imageSrc,
+  icon: Icon,
   features,
-  ctaText = "Get a Free AI Audit",
-  ctaLink = "https://calendly.com/shershah-kaltech/30min",
+  ctaText = "Start a Project",
+  ctaLink = "/contact-us",
   gradient = "",
-  service = "ai",
 }) => {
   return (
     <div className="relative w-full bg-background rounded-lg sm:p-16 pt-8 text-foreground overflow-hidden">
       <div
-        className={`relative flex py-8 bg-card px-4 shadow-[0px_-39px_112.8px_0px_rgba(0,0,0,0.08)] dark:shadow-[0px_-39px_112.8px_0px_#00000080] rounded-lg overflow-hidden ${gradient}`}
+        className={`relative flex py-8 ${gradient ? "" : "bg-card"} px-4 shadow-[0px_-39px_112.8px_0px_rgba(0,0,0,0.08)] dark:shadow-[0px_-39px_112.8px_0px_#00000080] rounded-lg overflow-hidden ${gradient}`}
       >
         <div className="w-full md:w-2/4 z-10 relative px-8">
-          <h1 className="text-[18px] sm:text-[28px] font-medium mb-4">
+          <h1
+            className={`text-[18px] sm:text-[28px] font-medium mb-4 ${gradient ? "text-white" : ""}`}
+          >
             {title}
           </h1>
-          <p className="text-muted-foreground text-[12px] sm:text-[18px] font-[400] mb-12 max-w-3xl">
+          <p
+            className={`text-[12px] sm:text-[18px] font-[400] mb-12 max-w-3xl ${gradient ? "text-white/70" : "text-muted-foreground"}`}
+          >
             {description}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-2 gap-x-10 gap-y-12 mb-12">
             {features.map((feature, index) => (
               <div key={index} className="feature-item">
-                <h3 className="text-[12px] sm:text-[18px] font-semibold mb-3">
+                <h3
+                  className={`text-[12px] sm:text-[18px] font-semibold mb-3 ${gradient ? "text-white" : ""}`}
+                >
                   {feature.title}
                 </h3>
-                <p className="text-[12px] tsm:text-[16px] text-muted-foreground">
+                <p
+                  className={`text-[12px] tsm:text-[16px] ${gradient ? "text-white/70" : "text-muted-foreground"}`}
+                >
                   {feature.description}
                 </p>
               </div>
@@ -56,10 +62,9 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({
           <div className="mt-10">
             <Link
               href={ctaLink}
-              target="_blank"
-              className="inline-flex items-center text-foreground hover:text-muted-foreground transition-colors"
+              className={`inline-flex items-center transition-colors ${gradient ? "text-white hover:text-white/80" : "text-foreground hover:text-muted-foreground"}`}
             >
-              <span className="text-[18px] font-medium hover:text-primary transition-colors">
+              <span className="text-[18px] font-medium">
                 {ctaText}
               </span>
               <svg
@@ -79,34 +84,9 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({
             </Link>
           </div>
         </div>
-        {service === "ai" && (
-          <div
-            className={`absolute bottom-0 sm:top-0 right-0 h-1/2 sm:h-full overflow-hidden z-0`}
-          >
-            <Image
-              src={imageSrc}
-              alt={title}
-              width={542}
-              height={559}
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className={`object-cover opacity-10 sm:opacity-100`}
-              priority
-            />
-          </div>
-        )}
-        {service === "custom" && (
-          <div className={`absolute top-0 right-0 h-full overflow-hidden z-0`}>
-            <Image
-              src={imageSrc}
-              alt={title}
-              height={559}
-              width={542}
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className={`object-cover opacity-10 sm:opacity-100`}
-              priority
-            />
-          </div>
-        )}
+        <div className="absolute -bottom-10 -right-10 sm:top-1/2 sm:right-12 sm:-translate-y-1/2 flex size-48 sm:size-56 items-center justify-center rounded-3xl bg-brand/10 z-0 opacity-40 sm:opacity-100">
+          <Icon className="size-24 sm:size-28 text-brand" strokeWidth={1.2} />
+        </div>
       </div>
     </div>
   );

@@ -1,102 +1,69 @@
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { MoveUpRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+"use client";
+import { Code2, Bot, Layers } from "lucide-react";
+import { StackedCarousel, type StackedCarouselItem } from "@/components/StackedCarousel";
+
+const services: StackedCarouselItem[] = [
+  {
+    id: "web-development",
+    icon: Code2,
+    title: "Web Development",
+    description:
+      "Business websites, landing pages, and e-commerce stores — designed and built to load fast and represent your business properly.",
+    href: "/web-development",
+    features: [
+      "Business & Corporate Websites",
+      "E-Commerce Websites",
+      "Custom Web Applications",
+      "Website Redesign & Modernization",
+    ],
+  },
+  {
+    id: "ai-automation",
+    icon: Bot,
+    title: "AI Automation",
+    description:
+      "AI agents and workflow automation that take repetitive work off your team's plate — from support chatbots to lead routing.",
+    href: "/ai-automation",
+    features: [
+      "AI Assistants & Chatbots",
+      "Workflow & Process Automation",
+      "Lead Qualification & Sales Automation",
+      "LLM Integrations & Custom AI Tools",
+    ],
+  },
+  {
+    id: "custom-software-development",
+    icon: Layers,
+    title: "Custom Software Development",
+    description:
+      "CRMs, admin portals, and internal systems built around how your business actually operates, not a generic template.",
+    href: "/custom-software-development",
+    features: [
+      "SaaS Platforms & Web Applications",
+      "CRM & Business Portals",
+      "Internal Management Systems",
+      "API Integrations & System Connectivity",
+    ],
+  },
+];
 
 const SolutionSection = () => {
-  const solutionBanner = [
-    {
-      image: "/assets/ai-services-demo.png",
-      name: "AI-Powered Solutions",
-      description:
-        "KalTech helps you unlock the future with cutting-edge AI, innovation, and intelligent solutions tailored for growth.",
-      btnLink: "/ai-solutions",
-      bg: "",
-    },
-    {
-      image: "/assets/custom-services-demo.png",
-      name: "Custom Development Solutions",
-      description:
-        "Tailored tech. Built to scale with precision and flexibility. Designed to lead in a digital-first, innovation-driven world.",
-      btnLink: "/custom-development",
-      bg: "",
-    },
-  ];
   return (
-    <div className="py-6 md:py-10">
+    <div id="services" className="services-section-bg py-6 md:py-10 scroll-mt-24 overflow-hidden">
       <div className="custom-container">
-        <div className="flex flex-col items-center gap-1.5 md:gap-3">
+        <div className="flex flex-col items-center gap-1.5 md:gap-3 mb-8">
           <h2 className="text-[32px] sm:text-[48px] font-semibold text-center">
-            Our AI-Enhanced <span className="text-brand">Services</span>
+            What We <span className="text-brand">Build</span>
           </h2>
 
-          <div className="flex items-center gap-3">
-            {/* <MoveRight className="size-5 mt-1 md:size-9" /> */}
-            <p className="text-[12px] sm:text-[18px] font-normal text-muted-foreground text-center flex sm:hidden">
-              We engineer future-ready solutions by embedding<br></br>artificial
-              intelligence into every layer of product<br></br> development.
-            </p>
-            <p className="text-[12px] sm:text-[18px] font-normal text-muted-foreground text-center hidden sm:flex">
-              We engineer future-ready solutions by embedding artificial
-              intelligence <br></br> into every layer of product development.
-            </p>
-          </div>
+          <p className="text-[12px] sm:text-[18px] font-normal text-muted-foreground text-center max-w-2xl">
+            Three services, one team — websites, automation, and software
+            that work together instead of living in separate silos. Click a
+            card, or use the arrows, to browse.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
-          {solutionBanner?.map((item, index) => (
-            <div
-              className={cn(
-                "flex flex-col relative rounded-2xl solution-cards-bg  overflow-hidden"
-              )}
-              key={index}
-            >
-              <div
-                className={cn(
-                  "solution-card-bg-filter",
-                  index === 0 ? "left" : "right"
-                )}
-              />
-
-              <Image
-                src={item.image}
-                alt="Solution Banner 1"
-                width={1000}
-                height={1000}
-                className={cn(
-                  "w-full h-auto aspect-[1/0.6] object-contain relative z-[2]",
-                  index === 0 ? "" : "px-2"
-                )}
-              />
-
-              <div className="flex-1 mt-1 flex flex-col gap-1 relative z-[1] px-3 pb-2.5">
-                <h4 className="text-base text-[14px] sm:text-[24px] font-medium text-foreground">
-                  {item.name}
-                </h4>
-
-                <p className="text-[12px] sm:text-[18px] font-normal text-muted-foreground">
-                  {item.description}
-                </p>
-
-                <Button
-                  variant={"ghost"}
-                  className="group w-fit gap-2 mt-auto text-primary hover:text-primary"
-                  asChild
-                >
-                  <Link
-                    href={item.btnLink}
-                    className="-ms-2 text-[12px] sm:text-[18px]"
-                  >
-                    Let&apos;s Build Together
-                    <MoveUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <StackedCarousel items={services} />
       </div>
     </div>
   );

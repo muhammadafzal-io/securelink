@@ -16,10 +16,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KalTech",
-  applicationName: "KalTech - Your AI Enablement Partner",
+  title: {
+    default: "Secure Link | Web Development, AI Automation & Custom Software in the UAE",
+    template: "%s | Secure Link",
+  },
+  applicationName: "Secure Link",
   description:
-    "KalTech is a leading AI venture studio, building intelligent digital products that combine deep tech with business outcomes. From generative AI to autonomous agents, we power growth across FinTech, HRTech, Web3, and beyond.",
+    "Secure Link — Integrating Technology with Security. We build modern websites, custom software, and AI-powered automation for businesses in the UAE.",
+  keywords: [
+    "web development UAE",
+    "web development company UAE",
+    "AI automation UAE",
+    "custom software development UAE",
+    "software development company UAE",
+    "business automation UAE",
+  ],
+  openGraph: {
+    title: "Secure Link | Web Development, AI Automation & Custom Software",
+    description:
+      "Technology solutions built for modern businesses in the UAE — web development, AI automation, and custom software.",
+    siteName: "Secure Link",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
