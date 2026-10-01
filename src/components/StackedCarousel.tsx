@@ -18,7 +18,7 @@ interface StackedCarouselProps {
   items: StackedCarouselItem[];
 }
 
-// Shortest signed distance between two indices on a circular array —
+// Shortest signed distance between two indices on a circular array,
 // keeps exactly one item centered, one to each side, regardless of count.
 function cyclicOffset(index: number, active: number, length: number) {
   let diff = index - active;

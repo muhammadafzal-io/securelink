@@ -38,7 +38,7 @@ const Card: React.FC<CardComponentProps> = ({
         <Icon className="size-7 text-white" strokeWidth={1.5} />
       </div>
 
-      {/* Text content — gradient backdrop is always dark, so text stays white regardless of site theme */}
+      {/* Text content - gradient backdrop is always dark, so text stays white regardless of site theme */}
       <div className="z-10 flex flex-col">
         {active === id && <div className={`w-12 h-1 mb-6 bg-brand`}></div>}
         <h2 className="text-[14px] font-bold text-white mb-4">{title}</h2>

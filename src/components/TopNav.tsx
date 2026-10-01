@@ -94,7 +94,7 @@ export function TopNav() {
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <div className="flex items-center gap-1">
+            <div className="flex min-w-0 items-center gap-1">
               <NavSheet navItems={navItems} />
 
               <NavbarLogo />
@@ -114,11 +114,11 @@ export function TopNav() {
 const ConatctButton = () => {
   return (
     <Button
-      className="group icon-btn-ghost-effect md:text-lg md:h-11 rounded-full gap-2 pe-2"
+      className="group icon-btn-ghost-effect md:text-lg md:h-11 rounded-full gap-2 pe-2 max-[400px]:ps-2"
       asChild
     >
       <Link href={"/contact-us"}>
-        Contact Us
+        <span className="max-[400px]:sr-only">Contact Us</span>
         <div className="icon">
           <ArrowRight className="size-4 md:size-5" />
         </div>

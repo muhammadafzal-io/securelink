@@ -95,22 +95,21 @@ export default function ContactForm() {
 
   return (
     <div
-      className="flex flex-col h-full w-full bg-card p-4 md:p-6 rounded-xl overflow-hidden"
-      style={{ minHeight: "720px" }}
+      className="flex h-full w-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-elevated p-5 sm:p-8"
     >
       <div className="flex-none">
-        <h1 className="text-[14px] sm:text-[24px] font-bold text-foreground mb-1">
+        <h1 className="text-[22px] sm:text-[28px] font-bold text-foreground mb-1">
           Start a Project
         </h1>
-        <p className="text-muted-foreground text-[12px] sm:text-[16px] mb-4">
-          Tell us a bit about what you need — we'll reply with next steps.
+        <p className="text-muted-foreground text-[13px] sm:text-[16px] mb-6">
+          Tell us a bit about what you need, we'll reply with next steps.
         </p>
       </div>
 
       <div className="flex-grow overflow-auto">
         {isSubmitted ? (
           <div className="flex flex-col items-center justify-center h-full text-center mr-8 sm:mt-0">
-            <h2 className="text-3xl font-bold text-primary mb-4">Thank You!</h2>
+            <h2 className="text-3xl font-bold text-brand mb-4">Thank You!</h2>
             <p className="text-foreground text-xl mb-2">
               Your message has been received.
             </p>
@@ -124,9 +123,9 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                  className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
                 >
-                  Full Name<span className="text-primary">*</span>
+                  Full Name<span className="text-brand">*</span>
                 </label>
                 <input
                   type="text"
@@ -135,15 +134,15 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                  className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
                 >
-                  Email<span className="text-primary">*</span>
+                  Email<span className="text-brand">*</span>
                 </label>
                 <input
                   type="email"
@@ -152,7 +151,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
                 />
               </div>
             </div>
@@ -161,7 +160,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                  className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
                 >
                   Phone
                 </label>
@@ -169,15 +168,16 @@ export default function ContactForm() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  placeholder="+971 … (with country code)"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
                 />
               </div>
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                  className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
                 >
                   Company
                 </label>
@@ -187,7 +187,7 @@ export default function ContactForm() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function ContactForm() {
             <div className="mb-4">
               <label
                 htmlFor="service"
-                className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
               >
                 What do you need?
               </label>
@@ -205,7 +205,7 @@ export default function ContactForm() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary appearance-none"
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 appearance-none"
                 >
                   <option value="" disabled>
                     Select a service
@@ -231,7 +231,7 @@ export default function ContactForm() {
             <div className="mb-4">
               <label
                 htmlFor="message"
-                className="block text-foreground text-[12px] sm:text-[18px] mb-1"
+                className="mb-1.5 block text-foreground text-[13px] sm:text-[15px] font-medium"
               >
                 How can we help?
               </label>
@@ -241,7 +241,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={3}
-                className="w-full bg-transparent border border-border rounded-md p-2 text-foreground text-[12px] sm:text-[18px] focus:outline-none focus:border-primary"
+                className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-foreground text-[14px] sm:text-[16px] placeholder:text-muted-foreground/60 transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
               ></textarea>
             </div>
 
@@ -252,12 +252,12 @@ export default function ContactForm() {
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="w-full bg-primary text-primary-foreground text-[12px] sm:text-[18px] font-medium py-3 px-4 rounded-full hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full rounded-full bg-brand px-4 py-3.5 text-[14px] sm:text-[17px] font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-brand/90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Submitting..." : "Send Message"}
             </button>
 
-            <p className="text-center text-muted-foreground mt-4 text-[12px] sm:text-[18px]">
+            <p className="mt-4 text-center text-[12px] sm:text-[14px] text-muted-foreground">
               We respect your inbox. No spam, no sharing your details.
             </p>
           </div>

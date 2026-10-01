@@ -36,7 +36,7 @@ const Hero = () => {
           className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2"
         >
           From corporate websites to e-commerce stores and custom web
-          apps — designed to load fast, work on every device, and
+          apps, designed to load fast, work on every device, and
           represent your business properly.
         </motion.p>
       </div>

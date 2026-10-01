@@ -34,7 +34,7 @@ const Hero = () => {
           className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2"
         >
           CRMs, admin portals, and internal systems built around how your
-          business actually operates — not squeezed into a generic
+          business actually operates, not squeezed into a generic
           template.
         </motion.p>
       </div>

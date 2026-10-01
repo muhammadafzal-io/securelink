@@ -3,6 +3,9 @@ import { useState } from "react";
 import Hero from "@/components/sections/portfolio/Hero";
 import MeetingSchedulerSection from "@/components/sections/home/MeetingSchedulerSection";
 import { caseStudies } from "@/data/caseStudies";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import { CaseStudyCard } from "@/components/shared/CaseStudyCard";
+import { GlobalReach } from "@/components/shared/GlobalReach";
 
 export default function Portfolio() {
   const categories = ["All", "Web Development", "AI Automation", "Custom Software"];
@@ -17,22 +20,29 @@ export default function Portfolio() {
     <div>
       <Hero />
 
-      <div className="custom-container py-10 md:py-16">
-        <p className="text-[12px] sm:text-[14px] text-muted-foreground max-w-2xl mb-8">
-          These are illustrative examples of the work we take on, shown to
-          give you a sense of scope and approach rather than a list of named
-          clients.
-        </p>
+      <section className="custom-container py-12 md:py-20">
+        <SectionHeading
+          eyebrow="Selected Work"
+          title="Built for real"
+          accent="business problems"
+          description="Illustrative examples of the work we take on for clients worldwide, shown to give you a sense of scope and approach, not a list of named clients."
+        />
 
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div
+          role="tablist"
+          aria-label="Filter projects"
+          className="mt-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible"
+        >
           {categories.map((category) => (
             <button
               key={category}
+              role="tab"
+              aria-selected={activeCategory === category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-[12px] sm:text-[14px] transition-colors border ${
+              className={`shrink-0 rounded-full border px-5 py-2 text-[13px] sm:text-[15px] font-medium transition-colors ${
                 activeCategory === category
-                  ? "bg-brand text-white border-brand"
-                  : "bg-surface-panel text-muted-foreground border-border hover:text-foreground"
+                  ? "border-brand bg-brand text-white"
+                  : "border-border bg-surface-elevated text-muted-foreground hover:border-brand/50 hover:text-foreground"
               }`}
             >
               {category}
@@ -40,27 +50,16 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((study, index) => (
-            <div
-              key={index}
-              className="group flex flex-col rounded-2xl border border-border bg-surface-elevated p-6 transition-colors hover:border-brand/40"
-            >
-              <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-brand mb-4">
-                {study.category}
-              </span>
-
-              <h3 className="text-[16px] sm:text-[20px] font-medium text-foreground mb-2">
-                {study.title}
-              </h3>
-
-              <p className="text-[12px] sm:text-sm text-muted-foreground flex-1">
-                {study.description}
-              </p>
-            </div>
+        <ul className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((study) => (
+            <li key={study.title}>
+              <CaseStudyCard study={study} />
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </section>
+
+      <GlobalReach />
 
       <MeetingSchedulerSection />
     </div>

@@ -36,7 +36,7 @@ const Hero = () => {
           className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2"
         >
           AI agents and workflow automation that take repetitive work off
-          your team's plate — from customer support to lead follow-up.
+          your team's plate, from customer support to lead follow-up.
         </motion.p>
       </div>
     </div>

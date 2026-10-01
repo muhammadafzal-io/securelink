@@ -18,7 +18,7 @@ const steps: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: ClipboardList,
     title: "Plan",
-    description: "Scope, architecture, and timeline agreed upfront — no surprises mid-build.",
+    description: "Scope, architecture, and timeline agreed upfront, with no surprises mid-build.",
   },
   {
     icon: Hammer,
@@ -44,47 +44,72 @@ const steps: { icon: LucideIcon; title: string; description: string }[] = [
 
 const ProcessSection = () => {
   return (
-    <div className="custom-container">
-      <div className="relative py-10 md:py-20 overflow-hidden rounded-xl bg-surface-elevated">
+    <section className="custom-container">
+      <div className="relative overflow-hidden rounded-3xl bg-surface-elevated py-12 md:py-24">
+        {/* Central glow: wide soft halo + tighter core, both centred behind the timeline */}
         <div
-          className="absolute inset-0 z-0"
+          aria-hidden="true"
+          className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(60% 70% at 50% 0%, color-mix(in oklch, var(--brand) 8%, transparent) 0%, transparent 70%)",
+              "radial-gradient(50% 45% at 50% 55%, color-mix(in oklch, var(--brand) 38%, transparent) 0%, transparent 72%), radial-gradient(85% 80% at 50% 50%, color-mix(in oklch, var(--brand) 18%, transparent) 0%, transparent 78%)",
           }}
         />
+        <div
+          aria-hidden="true"
+          className="px-slow pointer-events-none absolute left-1/2 top-1/2 size-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/25 blur-3xl"
+        />
 
-        <div className="relative z-[3] flex flex-col items-center px-4">
-          <h2 className="text-[32px] sm:text-[48px] font-semibold text-foreground text-center">
-            Our Process
+        <div className="relative z-[3] flex flex-col items-center px-5 sm:px-8">
+          <p className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.15em] text-brand">
+            <span className="size-1.5 rounded-full bg-brand" />
+            How We Work
+          </p>
+          <h2 className="mt-5 text-[34px] sm:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground text-center">
+            Our <span className="text-brand">Process</span>
           </h2>
-
-          <p className="text-[12px] sm:text-[18px] text-muted-foreground mt-4 text-center max-w-2xl">
+          <p className="mt-4 text-[14px] sm:text-[19px] text-muted-foreground text-center max-w-2xl">
             A straightforward way of working, from first call to the system
             running in production.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mt-10 w-full max-w-5xl">
+          <ol className="relative mt-12 md:mt-16 grid w-full max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4">
+            {/* Desktop connector: track + progress line that draws on scroll */}
+            <span
+              aria-hidden="true"
+              className="absolute left-[8.33%] right-[8.33%] top-7 hidden h-0.5 bg-border lg:block"
+            />
+            <span
+              aria-hidden="true"
+              className="px-draw absolute left-[8.33%] right-[8.33%] top-7 hidden h-0.5 origin-left bg-brand lg:block"
+            />
+
             {steps.map((step, index) => (
-              <div key={step.title} className="flex flex-col items-center text-center gap-3">
-                <div className="relative flex size-14 items-center justify-center rounded-full bg-brand/10 border border-brand/20">
-                  <step.icon className="size-6 text-brand" strokeWidth={1.5} />
-                  <span className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-brand text-[10px] font-semibold text-white">
-                    {index + 1}
+              <li
+                key={step.title}
+                className="px-reveal group relative flex flex-col lg:items-center lg:text-center"
+              >
+                <span className="relative z-[1] flex size-14 items-center justify-center rounded-full border-2 border-brand bg-background text-brand shadow-[0_0_28px_-6px_color-mix(in_oklch,var(--brand)_70%,transparent)] transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                  <step.icon className="size-6" strokeWidth={1.75} />
+                </span>
+
+                <div className="mt-4 flex-1 rounded-2xl border border-border bg-background/60 p-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-brand/50 lg:w-full">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
+                    Step {String(index + 1).padStart(2, "0")}
                   </span>
+                  <h3 className="mt-1 text-[18px] sm:text-[20px] font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-[13px] sm:text-[14px] text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h5 className="text-[13px] sm:text-[16px] font-medium text-foreground">
-                  {step.title}
-                </h5>
-                <p className="text-[11px] sm:text-[13px] text-muted-foreground leading-snug">
-                  {step.description}
-                </p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

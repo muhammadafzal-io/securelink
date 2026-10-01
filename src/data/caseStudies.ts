@@ -13,7 +13,7 @@ export const caseStudies: CaseStudy[] = [
     service: "Web Development",
     category: "Web Development",
     description:
-      "A dated business website rebuilt from scratch — modern design, faster load times, and a CMS the team can actually update themselves.",
+      "A dated business website rebuilt from scratch, modern design, faster load times, and a CMS the team can actually update themselves.",
   },
   {
     title: "Support Chatbot for a Service Business",

@@ -17,24 +17,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Secure Link | Web Development, AI Automation & Custom Software in the UAE",
+    default: "Secure Link | Web Development, AI Automation & Custom Software | UAE-Based, Working Worldwide",
     template: "%s | Secure Link",
   },
   applicationName: "Secure Link",
   description:
-    "Secure Link — Integrating Technology with Security. We build modern websites, custom software, and AI-powered automation for businesses in the UAE.",
+    "Secure Link: Integrating Technology with Security. We build modern websites, custom software, and AI-powered automation for businesses worldwide, from our base in the UAE.",
   keywords: [
-    "web development UAE",
     "web development company UAE",
-    "AI automation UAE",
-    "custom software development UAE",
-    "software development company UAE",
-    "business automation UAE",
+    "AI automation agency",
+    "custom software development company",
+    "software development UAE",
+    "business automation",
+    "remote software development team",
+    "web development for international clients",
   ],
   openGraph: {
     title: "Secure Link | Web Development, AI Automation & Custom Software",
     description:
-      "Technology solutions built for modern businesses in the UAE — web development, AI automation, and custom software.",
+      "Technology solutions for modern businesses worldwide, built by a UAE-based team, web development, AI automation, and custom software.",
     siteName: "Secure Link",
     type: "website",
   },

@@ -6,7 +6,7 @@ type BrandLogoProps = {
   /** Rendered height in px. Width follows the chosen variant's aspect ratio. */
   height?: number;
   /**
-   * "full" shows the complete lockup (icon + wordmark + tagline) — use where
+   * "full" shows the complete lockup (icon + wordmark + tagline) - use where
    * there's room for the tagline to stay legible, e.g. the footer.
    * "compact" crops to just the icon + wordmark via object-fit, so nothing
    * shrinks to illegible mush at small sizes, e.g. the navbar.
@@ -34,7 +34,7 @@ export function BrandLogo({
     >
       <Image
         src="/assets/brand/secure-link-logo.svg"
-        alt="Secure Link — Integrating Technology with Security"
+        alt="Secure Link: Integrating Technology with Security"
         width={400}
         height={200}
         priority

@@ -1,75 +1,124 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import Link from "next/link";
 import React from "react";
 
-const MeetingSchedulerSection = () => {
-  const valueChips = [
-    "UAE-Focused Delivery",
-    "Web, Automation & Software Under One Roof",
-    "Clear Scope Before We Start",
-    "Modern, Scalable Engineering",
-    "Direct Access To The Team Building Your Project",
-  ];
+const valuePoints = [
+  "UAE-Based, Globally Delivered",
+  "Web, Automation & Software Under One Roof",
+  "Clear Scope Before We Start",
+  "Modern, Scalable Engineering",
+  "Direct Access To The Team Building Your Project",
+];
+
+type MeetingSchedulerSectionProps = {
+  /** Plain part of the headline, then the accented part in brand green. */
+  title?: string;
+  accent?: string;
+  description?: string;
+};
+
+const MeetingSchedulerSection = ({
+  title = "Let’s talk about",
+  accent = "your project",
+  description = "Tell us what you’re trying to build (a website, an automation, or a piece of custom software) and we’ll get back to you with clear next steps, wherever in the world you are.",
+}: MeetingSchedulerSectionProps) => {
   return (
-    <div className="custom-container mt-10 md:mt-20">
-      <div className="rounded-2xl border border-white/10 py-8 md:py-20 relative overflow-hidden">
+    <section className="custom-container mt-12 md:mt-24 mb-6 md:mb-10">
+      <div className="px-reveal relative isolate overflow-hidden rounded-3xl border border-brand/30 shadow-[0_40px_90px_-40px_color-mix(in_oklch,var(--brand)_60%,transparent)]">
         <Image
           src="/assets/hero/cta-abstract-bg.png"
           alt=""
           fill
           sizes="(max-width: 1280px) 100vw, 1280px"
-          className="object-cover object-center grayscale"
+          className="-z-10 object-cover object-center grayscale"
         />
-        {/* Recolors the (now-desaturated) image toward brand green/navy, keeping its original shape, highlights and shadows */}
+        {/* Brand recolour, then dark scrim for text contrast */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-brand mix-blend-color" />
         <div
           aria-hidden="true"
-          className="absolute inset-0 mix-blend-color"
+          className="absolute inset-0 -z-10"
           style={{
-            background: "linear-gradient(135deg, var(--brand) 0%, color-mix(in oklch, var(--brand) 40%, black) 100%)",
+            background:
+              "radial-gradient(60% 90% at 85% 50%, color-mix(in oklch, var(--brand) 38%, transparent) 0%, transparent 70%), linear-gradient(100deg, rgba(5,7,10,0.92) 0%, rgba(5,7,10,0.78) 50%, rgba(5,7,10,0.5) 100%)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070a] via-[#05070a]/85 to-[#05070a]/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05070a] via-transparent to-[#05070a]/20" />
+        {/* Blueprint grid, faded toward the edges */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 opacity-60"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+            maskImage: "radial-gradient(ellipse 70% 80% at 80% 50%, black 0%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 80% 50%, black 0%, transparent 75%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="px-slow pointer-events-none absolute -right-24 -top-24 -z-10 size-[420px] rounded-full bg-brand/30 blur-3xl"
+        />
 
-        <div className="px-6 sm:px-0 sm:max-w-[90%] mx-auto relative z-[5]">
-          <h2 className="text-[24px] sm:text-[40px] font-semibold text-white capitalize">
-            Let’s talk about your project
-          </h2>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-12 sm:px-10 md:py-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/15 px-4 py-1.5 text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.15em] text-white">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75 motion-reduce:hidden" />
+                <span className="relative inline-flex size-2 rounded-full bg-brand" />
+              </span>
+              Now taking new projects
+            </p>
 
-          <p className="text-[12px] sm:text-[18px] font-normal max-w-3xl text-neutral-300 mt-2 sm:mt-4">
-            Tell us what you're trying to build — a website, an automation,
-            or a piece of custom software — and we'll get back to you with
-            clear next steps.
-          </p>
+            <h2 className="mt-5 text-[32px] sm:text-[56px] font-bold leading-[1.05] tracking-tight text-white">
+              {title}{" "}
+              <span className="text-brand">{accent}</span>
+            </h2>
 
-          <ul className="flex flex-wrap gap-x-2 sm:gap-x-4 gap-y-2 max-w-3xl mt-4 sm:mt-8">
-            {valueChips.map((item, index) => (
-              <li
-                className="text-[8px] sm:text-[14px] font-normal text-neutral-200 bg-white/10 border border-white/10 py-1 px-3 rounded-full w-fit"
-                key={index}
+            <p className="mt-4 max-w-xl text-[14px] sm:text-[19px] text-neutral-300">
+              {description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button
+                className="group icon-btn-ghost-effect hero-primary-btn h-12 sm:h-14 rounded-full text-[14px] sm:text-[18px] gap-4 ps-7 pe-2 relative glowing-effect"
+                asChild
               >
+                <Link href="/contact-us">
+                  Start a Project
+                  <div className="icon size-8 sm:size-9">
+                    <ArrowRight className="size-4 md:size-5" />
+                  </div>
+                </Link>
+              </Button>
+
+              <Link
+                href="/#services"
+                className="group inline-flex h-12 sm:h-14 items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 text-[14px] sm:text-[18px] font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Explore Services
+              </Link>
+            </div>
+          </div>
+
+          <ul className="space-y-3 rounded-2xl border border-white/15 bg-black/40 p-5 sm:p-7">
+            {valuePoints.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-[13px] sm:text-[16px] text-neutral-100"
+              >
+                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                  <Check className="size-3" strokeWidth={3} />
+                </span>
                 {item}
               </li>
             ))}
           </ul>
-
-          <Button
-            className="group icon-btn-ghost-effect hero-primary-btn sm:h-10 rounded-full text-[12px] sm:text-[16px] gap-4 ps-6 pe-2 relative glowing-effect mt-4 sm:mt-8"
-            asChild
-          >
-            <Link href="/contact-us">
-              Start a Project
-              <div className="icon size-6 sm:size-7">
-                <ArrowRight className="size-4 md:size-5" />
-              </div>
-            </Link>
-          </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
