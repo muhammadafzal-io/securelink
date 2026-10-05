@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUp, MapPin, Mail } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
+import { CONTACT_EMAIL } from "@/data/contact";
 import type { ReactNode } from "react";
 
 type FooterLink = {
@@ -41,7 +42,7 @@ const sections: FooterSection[] = [
         title: "Contact",
         links: [
             { label: "Address: TBD", href: "#", icon: <MapPin className="size-4" /> },
-            { label: "Email: TBD", href: "#", icon: <Mail className="size-4" /> },
+            { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, icon: <Mail className="size-4" /> },
         ],
     },
 ];
@@ -102,7 +103,7 @@ export function Footer() {
                                                     href={link.href}
                                                     aria-disabled={placeholder || undefined}
                                                     tabIndex={placeholder ? -1 : undefined}
-                                                    className={`group inline-flex items-center gap-2 text-[13px] sm:text-[16px] transition-colors ${
+                                                    className={`group inline-flex items-center gap-2 break-all text-[13px] sm:text-[16px] transition-colors ${
                                                         placeholder
                                                             ? "pointer-events-none text-white/40"
                                                             : "text-white/75 hover:text-white"

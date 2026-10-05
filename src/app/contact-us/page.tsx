@@ -12,6 +12,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Faq } from "@/components/shared/Faq";
+import { CONTACT_EMAIL } from "@/data/contact";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 const channels: { icon: LucideIcon; title: string; text: string }[] = [
@@ -119,7 +120,12 @@ export default function ContactUs() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="size-4 text-brand" />
-                  Email: TBD
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="break-all transition-colors hover:text-brand"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
                 </li>
               </ul>
             </div>
