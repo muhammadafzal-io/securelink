@@ -16,7 +16,7 @@ export default function AboutUs() {
           eyebrow="Who We Are"
           title="Websites, Software & Automation "
           accent="Under One Roof"
-          description="Secure Link is based in the UAE and works with businesses around the world to build the technology behind their growth, a website that represents them properly, software that fits how their team actually works, and automation that removes the busywork in between."
+          description="SecureLink is based in the UAE and works with businesses around the world to build the technology behind their growth, a website that represents them properly, software that fits how their team actually works, and automation that removes the busywork in between."
         />
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">

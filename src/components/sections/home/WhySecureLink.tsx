@@ -71,7 +71,7 @@ const WhySecureLink = () => {
             Why Choose Us
           </p>
           <h2 className="mt-5 text-[34px] sm:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground">
-            Why <span className="text-brand">Secure Link</span>
+            Why <span className="text-brand">SecureLink</span>
           </h2>
           <p className="mt-4 text-[14px] sm:text-[19px] text-muted-foreground">
             Technology partners are easy to find. One that understands your

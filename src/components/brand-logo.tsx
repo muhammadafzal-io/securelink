@@ -6,43 +6,59 @@ type BrandLogoProps = {
   /** Rendered height in px. Width follows the chosen variant's aspect ratio. */
   height?: number;
   /**
-   * "full" shows the complete lockup (icon + wordmark + tagline) - use where
-   * there's room for the tagline to stay legible, e.g. the footer.
-   * "compact" crops to just the icon + wordmark via object-fit, so nothing
-   * shrinks to illegible mush at small sizes, e.g. the navbar.
+   * "full" shows the complete lockup (icon + wordmark + tagline), for places
+   * with room for the tagline to stay legible, e.g. the footer.
+   * "compact" drops the tagline so the wordmark stays readable at small
+   * sizes, e.g. the navbar.
    */
   variant?: "full" | "compact";
+  /**
+   * "auto" swaps to a white-lettered version in dark mode. "light" always
+   * uses the original navy lettering, for use on white backgrounds.
+   */
+  tone?: "auto" | "light";
 };
+
+// Intrinsic sizes of the cropped logo artwork.
+const SIZES = {
+  full: { width: 1159, height: 323 },
+  compact: { width: 1159, height: 271 },
+} as const;
+
+const ALT = "SecureLink: Integrating Technology with Security";
 
 export function BrandLogo({
   className,
-  height = 44,
+  height = 38,
   variant = "compact",
+  tone = "auto",
 }: BrandLogoProps) {
-  // Source artwork is 400x200, transparent background. The icon + wordmark
-  // occupy roughly the top 72.5% of that canvas; the tagline sits below.
-  // Cropping via a taller container + object-fit: cover + object-position:
-  // top keeps the source file untouched while hiding the tagline at
-  // compact sizes.
-  const aspect = variant === "full" ? 2 : 400 / 145;
-  const width = Math.round(height * aspect);
+  const { width: w, height: h } = SIZES[variant];
+  const width = Math.round((height * w) / h);
+  const src = (t: "light" | "dark") => `/assets/brand/securelink-${variant}-${t}.png`;
 
   return (
     <span
-      className={cn("brand-logo inline-flex items-center overflow-hidden", className)}
+      className={cn("brand-logo inline-flex items-center", className)}
       style={{ width, height }}
     >
       <Image
-        src="/assets/brand/secure-link-logo.svg"
-        alt="Secure Link: Integrating Technology with Security"
-        width={400}
-        height={200}
+        src={src("light")}
+        alt={ALT}
+        width={width}
+        height={height}
         priority
-        className={cn(
-          "h-full w-full",
-          variant === "full" ? "object-contain" : "object-cover object-top"
-        )}
+        className={cn("h-full w-full object-contain", tone === "auto" && "dark:hidden")}
       />
+      {tone === "auto" && (
+        <Image
+          src={src("dark")}
+          alt={ALT}
+          width={width}
+          height={height}
+          className="hidden h-full w-full object-contain dark:block"
+        />
+      )}
     </span>
   );
 }

@@ -5,7 +5,7 @@ export type CaseStudy = {
   description: string;
 };
 
-// Illustrative example projects showing the kind of work Secure Link takes on.
+// Illustrative example projects showing the kind of work SecureLink takes on.
 // Not attributed to specific named clients.
 export const caseStudies: CaseStudy[] = [
   {

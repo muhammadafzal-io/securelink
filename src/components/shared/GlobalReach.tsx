@@ -48,7 +48,7 @@ export function GlobalReach() {
             eyebrow="Global Reach"
             title="Based in the UAE."
             accent="Working worldwide."
-            description="Secure Link is headquartered in the UAE and builds for clients wherever they are. Distance doesn't change how we work. It just changes the time on the clock."
+            description="SecureLink is headquartered in the UAE and builds for clients wherever they are. Distance doesn't change how we work. It just changes the time on the clock."
           />
           <ul className="mt-8 space-y-5">
             {points.map(({ icon: Icon, title, text }) => (

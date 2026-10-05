@@ -15,7 +15,7 @@ type FooterSection = {
 };
 
 const company = {
-    name: "Secure Link",
+    name: "SecureLink",
     slogan: "Integrating Technology with Security",
     tagline: "Websites, software, and AI automation, built in the UAE, delivered worldwide.",
 };
@@ -66,7 +66,7 @@ export function Footer() {
                     {/* Brand block */}
                     <div className="col-span-2 lg:col-span-5">
                         <Link href="/" className="inline-block rounded-2xl bg-white px-4 py-2 shadow-lg">
-                            <BrandLogo variant="full" height={52} />
+                            <BrandLogo variant="full" height={56} tone="light" />
                         </Link>
                         <p className="mt-4 text-[18px] sm:text-[26px] font-bold leading-snug text-white">
                             {company.slogan}
@@ -127,7 +127,7 @@ export function Footer() {
                     aria-hidden="true"
                     className="pointer-events-none mt-8 select-none whitespace-nowrap text-center text-white/[0.12] text-[9vw] font-black uppercase leading-[0.8] tracking-tighter sm:mt-10 min-[1700px]:text-[9rem]"
                 >
-                    Secure Link
+                    SecureLink
                 </div>
 
                 {/* Trust strip */}

@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/75 via-black/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 z-[3] h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
 
-      {/* Animated emblem: services orbiting the Secure Link signal mark */}
+      {/* Animated emblem: services orbiting the SecureLink signal mark */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -144,7 +144,7 @@ const Hero = () => {
           transition={{ duration: 0.3, delay: 0.6 }}
           className="py-2 text-[13px] sm:text-[19px] font-normal hero-subtext mt-4 max-w-2xl"
         >
-          Secure Link builds websites, custom software, and AI-powered
+          SecureLink builds websites, custom software, and AI-powered
           automation for businesses worldwide, from our base in the UAE. We
           handle the technology so you can focus on running your business,
           from your first website to the systems that keep your operations
