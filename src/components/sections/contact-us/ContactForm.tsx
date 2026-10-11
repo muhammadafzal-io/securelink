@@ -1,10 +1,11 @@
 "use client";
 import { useState, type ChangeEvent, type MouseEvent } from "react";
 
+import { Send } from "lucide-react";
+import { services } from "@/data/services";
+
 const serviceOptions = [
-  { value: "web-development", label: "Web Development" },
-  { value: "ai-automation", label: "AI Automation" },
-  { value: "custom-software", label: "Custom Software Development" },
+  ...services.map((s) => ({ value: s.slug, label: s.name })),
   { value: "not-sure", label: "Not Sure Yet" },
 ];
 
@@ -95,7 +96,7 @@ export default function ContactForm() {
 
   return (
     <div
-      className="flex h-full w-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-elevated p-5 sm:p-8"
+      className="relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-elevated p-5 sm:p-8"
     >
       <div className="flex-none">
         <h1 className="text-[22px] sm:text-[28px] font-bold text-foreground mb-1">
@@ -106,7 +107,7 @@ export default function ContactForm() {
         </p>
       </div>
 
-      <div className="flex-grow overflow-auto">
+      <div>
         {isSubmitted ? (
           <div className="flex flex-col items-center justify-center h-full text-center mr-8 sm:mt-0">
             <h2 className="text-3xl font-bold text-brand mb-4">Thank You!</h2>
@@ -118,7 +119,7 @@ export default function ContactForm() {
             </p>
           </div>
         ) : (
-          <div className="h-full overflow-y-auto">
+          <div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label
@@ -262,6 +263,34 @@ export default function ContactForm() {
             </p>
           </div>
         )}
+      </div>
+
+      <div className="relative mt-8 border-t border-border pt-6 md:mt-auto">
+        <Send
+          aria-hidden="true"
+          strokeWidth={1}
+          className="pointer-events-none absolute -bottom-10 -right-8 size-36 text-brand/[0.07]"
+        />
+        <h2 className="relative text-[16px] sm:text-[18px] font-semibold text-foreground">
+          What happens next
+        </h2>
+        <ol className="relative mt-4 grid gap-4 sm:grid-cols-3">
+          {[
+            ["We review", "Your message goes straight to our team."],
+            ["We reply", "A personal response within one business day."],
+            ["We scope", "A short call, then a clear plan and quote."],
+          ].map(([title, text], i) => (
+            <li key={title} className="flex gap-3">
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand text-[13px] font-bold text-white">
+                {i + 1}
+              </span>
+              <div>
+                <p className="text-[14px] font-semibold text-foreground">{title}</p>
+                <p className="text-[13px] text-muted-foreground">{text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );

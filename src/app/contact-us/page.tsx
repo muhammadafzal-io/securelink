@@ -12,7 +12,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Faq } from "@/components/shared/Faq";
-import { CONTACT_EMAIL } from "@/data/contact";
+import { CONTACT_ADDRESS, CONTACT_EMAIL } from "@/data/contact";
+import { services } from "@/data/services";
+import Link from "next/link";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 const channels: { icon: LucideIcon; title: string; text: string }[] = [
@@ -112,11 +114,28 @@ export default function ContactUs() {
             </div>
 
             <div className="rounded-2xl border border-border bg-surface-elevated p-5">
+              <h3 className="text-[16px] sm:text-[18px] font-semibold text-foreground">Our Services</h3>
+              <ul className="mt-3 grid gap-1 sm:grid-cols-2">
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={s.href}
+                      className="flex items-center gap-2 rounded-lg px-2 py-2 text-[13px] sm:text-[14px] text-muted-foreground transition-colors hover:bg-brand/10 hover:text-foreground"
+                    >
+                      <s.icon className="size-4 shrink-0 text-brand" strokeWidth={1.75} />
+                      {s.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-surface-elevated p-5">
               <h3 className="text-[16px] sm:text-[18px] font-semibold text-foreground">Reach Out</h3>
               <ul className="mt-3 space-y-3 text-[13px] sm:text-[15px] text-muted-foreground">
-                <li className="flex items-center gap-3">
-                  <MapPin className="size-4 text-brand" />
-                  Address: TBD
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-1 size-4 shrink-0 text-brand" />
+                  {CONTACT_ADDRESS}
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="size-4 text-brand" />

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUp, MapPin, Mail } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
-import { CONTACT_EMAIL } from "@/data/contact";
+import { CONTACT_ADDRESS, CONTACT_EMAIL } from "@/data/contact";
+import { services } from "@/data/services";
 import type { ReactNode } from "react";
 
 type FooterLink = {
@@ -16,7 +17,7 @@ type FooterSection = {
 };
 
 const company = {
-    name: "SecureLink",
+    name: "Secure Link IT Solution",
     slogan: "Integrating Technology with Security",
     tagline: "Websites, software, and AI automation, built in the UAE, delivered worldwide.",
 };
@@ -32,16 +33,12 @@ const sections: FooterSection[] = [
     },
     {
         title: "Services",
-        links: [
-            { label: "Web Development", href: "/web-development" },
-            { label: "AI Automation", href: "/ai-automation" },
-            { label: "Custom Software Development", href: "/custom-software-development" },
-        ],
+        links: services.map((svc) => ({ label: svc.name, href: svc.href })),
     },
     {
         title: "Contact",
         links: [
-            { label: "Address: TBD", href: "#", icon: <MapPin className="size-4" /> },
+            { label: CONTACT_ADDRESS, href: "#", icon: <MapPin className="mt-1 size-4 shrink-0" /> },
             { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, icon: <Mail className="size-4" /> },
         ],
     },
@@ -96,24 +93,25 @@ export function Footer() {
                                 </h3>
                                 <ul className="space-y-2">
                                     {section.links.map((link) => {
-                                        const placeholder = link.href === "#";
+                                        const isText = link.href === "#";
                                         return (
                                             <li key={link.label}>
-                                                <Link
-                                                    href={link.href}
-                                                    aria-disabled={placeholder || undefined}
-                                                    tabIndex={placeholder ? -1 : undefined}
-                                                    className={`group inline-flex items-center gap-2 break-all text-[13px] sm:text-[16px] transition-colors ${
-                                                        placeholder
-                                                            ? "pointer-events-none text-white/40"
-                                                            : "text-white/75 hover:text-white"
-                                                    }`}
-                                                >
-                                                    {link.icon}
-                                                    <span className="bg-gradient-to-r from-white to-white bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
+                                                {isText ? (
+                                                    <span className="inline-flex items-start gap-2 text-[13px] sm:text-[16px] text-white/75">
+                                                        {link.icon}
                                                         {link.label}
                                                     </span>
-                                                </Link>
+                                                ) : (
+                                                    <Link
+                                                        href={link.href}
+                                                        className="group inline-flex items-center gap-2 break-all text-[13px] sm:text-[16px] text-white/75 transition-colors hover:text-white"
+                                                    >
+                                                        {link.icon}
+                                                        <span className="bg-gradient-to-r from-white to-white bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
+                                                            {link.label}
+                                                        </span>
+                                                    </Link>
+                                                )}
                                             </li>
                                         );
                                     })}
@@ -126,9 +124,9 @@ export function Footer() {
                 {/* Oversized wordmark: fades out toward the bottom */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none mt-8 select-none whitespace-nowrap text-center text-white/[0.12] text-[9vw] font-black uppercase leading-[0.8] tracking-tighter sm:mt-10 min-[1700px]:text-[9rem]"
+                    className="pointer-events-none mt-8 select-none whitespace-nowrap text-center text-white/[0.12] text-[5.6vw] font-black uppercase leading-[0.8] tracking-tighter sm:mt-10 min-[1700px]:text-[5.5rem]"
                 >
-                    SecureLink
+                    Secure Link IT Solution
                 </div>
 
                 {/* Trust strip */}

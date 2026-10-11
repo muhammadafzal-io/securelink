@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { Globe } from "lucide-react";
+import { HeroArtwork } from "@/components/shared/HeroArtwork";
 
 const Hero = () => {
   return (
     <div className="hero-zone relative h-[60svh] md:h-[85svh] flex items-center mt-18 md:mt-0">
       <div className="hero-web-dev-video-filter" />
+      <HeroArtwork icon={Globe} />
       <div className="px-8 py-10 md:py-20 xl:py-32">
         <h1 className="relative z-10 font-bold hero-title sm:text-[58px] text-[32px] capitalize">
           {"Websites Built To Do Their Job"

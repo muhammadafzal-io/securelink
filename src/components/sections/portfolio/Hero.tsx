@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { Briefcase } from "lucide-react";
+import { HeroArtwork } from "@/components/shared/HeroArtwork";
 
 const Hero = () => {
   return (
     <div className="hero-zone relative h-[50svh] md:h-[60svh] flex items-center mt-18 md:mt-0">
       <div className="hero-portfolio-video-filter" />
+      <HeroArtwork icon={Briefcase} className="size-[250px] xl:size-[300px]" />
       <div className="px-8 py-10 md:py-16">
         <h1 className="relative z-10 font-bold hero-title sm:text-[58px] text-[32px] capitalize">
           {"Our Work".split(" ").map((word, index) => (

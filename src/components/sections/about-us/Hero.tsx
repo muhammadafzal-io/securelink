@@ -77,8 +77,8 @@ const Hero = () => {
           </svg>
         </motion.div>
         <div className="text-center">
-          <span className="block text-3xl lg:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]">
-            SecureLink
+          <span className="mx-auto block max-w-[16rem] text-2xl lg:max-w-[22rem] lg:text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]">
+            Secure Link IT Solution
           </span>
           <span className="mt-1 block text-[11px] lg:text-sm font-semibold uppercase tracking-[0.25em] text-white/80">
             Technology · Security
@@ -122,7 +122,7 @@ const Hero = () => {
           transition={{ duration: 0.3, delay: 0.8 }}
           className="relative z-10 py-2 text-[12px] sm:text-[18px] font-normal hero-subtext mt-2 max-w-2xl"
         >
-          SecureLink is a UAE-based technology company serving clients
+          Secure Link IT Solution is a UAE-based technology company serving clients
           worldwide, building websites, automating workflows, and
           developing custom software for companies that want technology that
           actually fits how they work.

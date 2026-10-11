@@ -25,7 +25,7 @@ const SIZES = {
   compact: { width: 1159, height: 271 },
 } as const;
 
-const ALT = "SecureLink: Integrating Technology with Security";
+const ALT = "Secure Link IT Solution: Integrating Technology with Security";
 
 export function BrandLogo({
   className,

@@ -17,6 +17,7 @@ import {
 import { ArrowRight, ChevronDown } from "lucide-react";
 import NavSheet from "./NavSheet";
 import { ThemeToggle } from "./theme-toggle";
+import { services } from "@/data/services";
 
 export type NavItem = {
   type: "link" | "multiple";
@@ -34,11 +35,7 @@ const navItems: NavItem[] = [
   {
     type: "multiple",
     name: "Services",
-    items: [
-      { name: "Web Development", link: "/web-development" },
-      { name: "AI Automation", link: "/ai-automation" },
-      { name: "Custom Software Development", link: "/custom-software-development" },
-    ],
+    items: services.map((s) => ({ name: s.name, link: s.href })),
   },
   { type: "link", name: "Portfolio", link: "/portfolio" },
 ];
@@ -62,7 +59,7 @@ export function TopNav() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="bg-background min-w-[14rem] rounded-xl"
+                    className="bg-background min-w-[16rem] rounded-xl"
                     align="start"
                   >
                     {item.items?.map((subItem, index) => (
